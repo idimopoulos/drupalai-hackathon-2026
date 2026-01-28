@@ -66,6 +66,47 @@
             }
             return request;
           };
+
+          // Handle markdown updates from the agent.
+          deepchatEl.responseInterceptor = (response) => {
+            const content = response.html || response.text || '';
+            const marker = 'UPDATED_MARKDOWN:';
+            const idx = content.indexOf(marker);
+
+            if (idx !== -1) {
+              // Extract everything after the marker.
+              let afterMarker = content.substring(idx + marker.length);
+
+              // Parse as HTML to find the code block.
+              const temp = document.createElement('div');
+              temp.innerHTML = afterMarker;
+
+              // Look for code block (could be <pre><code>, <code>, or <pre>).
+              const codeEl = temp.querySelector('pre code') || temp.querySelector('code') || temp.querySelector('pre');
+
+              if (codeEl) {
+                // Get text content from the code block (preserves markdown).
+                const markdown = codeEl.textContent || codeEl.innerText || '';
+                if (markdown.trim()) {
+                  textarea.value = markdown.trim();
+                  textarea.dispatchEvent(new Event('input', { bubbles: true }));
+                  textarea.dispatchEvent(new Event('change', { bubbles: true }));
+                  // Trigger keyup to fire the AJAX preview update.
+                  textarea.dispatchEvent(new KeyboardEvent('keyup', { bubbles: true }));
+                }
+              }
+
+              // Strip the markdown from the chat response - only show explanation.
+              const explanation = content.substring(0, idx).trim();
+              if (response.html) {
+                response.html = explanation || 'Content updated.';
+              }
+              if (response.text) {
+                response.text = explanation || 'Content updated.';
+              }
+            }
+            return response;
+          };
         });
       });
     }

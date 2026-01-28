@@ -1,0 +1,39 @@
+uuid: 2468b09b-1fce-433e-be58-b5b1c07ca759
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - canvasgov
+id: markdown_editor
+label: 'Markdown Field Editor'
+description: 'Generates updated markdown content based on user instructions. Returns the full updated markdown.'
+system_prompt: |
+  You are a markdown editor agent. When given the current markdown content and an edit instruction:
+  1. Apply the requested changes to the markdown
+  2. Preserve all content that wasn't explicitly asked to change
+  3. Follow ECL v4 conventions and WCAG 2.1 AA standards
+  4. Ensure accessibility compliance
+
+  RESPONSE FORMAT (MANDATORY):
+  First, provide a brief explanation of the changes (1-2 sentences).
+  Then output the marker UPDATED_MARKDOWN: followed by the complete updated markdown.
+  Do not use code fences around the markdown.
+
+  Example response:
+  I've added a new heading and reorganized the sections.
+  UPDATED_MARKDOWN:
+  # New Title
+  Content here...
+secured_system_prompt: '[ai_agent:agent_instructions]'
+tools: {  }
+tool_settings: {  }
+orchestration_agent: false
+triage_agent: false
+max_loops: 1
+default_information_tools: ''
+tool_usage_limits: {  }
+exclude_users_role: false
+masquerade_roles: {  }
+structured_output_enabled: false
+structured_output_schema: ''
