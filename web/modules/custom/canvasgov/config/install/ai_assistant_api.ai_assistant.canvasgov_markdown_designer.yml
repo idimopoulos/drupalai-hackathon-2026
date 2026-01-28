@@ -1,0 +1,265 @@
+uuid: 9b1dd6a9-bc1a-475c-9d6a-3f01a8fd2c3f
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - canvasgov
+_core:
+  default_config_hash: ''
+id: canvasgov_markdown_designer
+label: 'CanvasGov PDP Design Helper'
+description: 'Inline helper that answers questions about the PDP design markdown. It does not change the field value; it only replies in its own chat area.'
+system_prompt: |-
+  You are an inline, read-only design assistant embedded in a Drupal PDP node edit form.
+  Scope:
+  - Use the provided markdown content as context for your answers.
+  - Never modify the field value or instruct the host to change it automatically.
+  - Reply only with helpful explanations, suggestions, and examples in your chat area.
+  - Respect ECL v4 conventions, WCAG 2.1 AA, and keep a professional, neutral tone.
+  - Do not include scripts/iframes or unsafe content.
+pre_action_prompt: ''
+instructions: |-
+  Provide concise, actionable answers to the user’s questions about the design, components, templates, colors, and typography in the context markdown.
+  - Offer suggestions and code/markdown snippets as examples when useful, but DO NOT output a replacement of the whole document.
+  - If the user asks you to change the field value, explain what to change and provide a snippet, but keep your role read-only.
+  - Keep language clear and structured (use short headings and bullet points when appropriate).
+allow_history: session
+history_context_length: '10'
+preprompt_instructions: |-
+  Default context markdown the user is working with:
+  # Europa Component Library (ECL) v4 - Context Document
+
+  **Source:** [European Commission Component Library](https://ec.europa.eu/component-library/ec/)
+  **Role:** Official Design System for European Commission Web Presence
+  **Standard:** WCAG 2.1 Level AA Compliant
+
+  ---
+
+  ## 1. Description
+
+  This document establishes Design Foundations for the core visual logic of the system, including a 12-column grid, a specific EU-branded color palette, and a semantic typographic hierarchy.
+
+  Component Architecture: The file categorizes UI elements into three logical groups:
+  General UI Components: Building blocks for content (e.g., Accordions, Cards, Banners).
+  Form Elements: Standardized inputs for user data (e.g., Datepickers, Checkboxes).
+  Navigation & Structure: Site-wide containers that ensure a persistent user experience (e.g., Mega Menus, Site Headers, Footers).
+  Interactive Documentation: For every component, the document provides:
+  * A functional summary description.
+  * Showcase links for accessing technical implementation code (HTML/Twig).
+  * Playground links for real-time visual testing and configuration.
+
+  Structural Templates: It porvides examples of the "DNA" of standard European Commission pages by listing the specific component sequences required to build different Page types.
+
+  Technical Compliance: The document highlights the library's commitment to WCAG 2.1 Level AA accessibility, support for both Left-to-Right (LTR) and Right-to-Left (RTL) languages, and a modern CSS approach using the BEM (Block Element Modifier) naming convention.
+
+  ---
+
+  ## 2. Component Catalog & Showcase
+
+  ### General UI Components
+
+  * **Accordion**
+      * *Description:* Collapsible panels used to organize large amounts of info in a compact space.
+      * *Showcase:* [View Accordion](https://ec.europa.eu/component-library/ec/components/accordion/code)
+      * *Playground link:* [Accordion](https://ec.europa.eu/component-library/playground/ec/?path=/story/components-accordion--default&globals=viewport:responsive)
+      * Illustration![Accordion](ECL-V4-accordion.png)
+
+  * **Banner**
+      * *Description:* High-level promotional or informational sections usually at the top of a page.
+      * *Showcase:* [View Banner](https://ec.europa.eu/component-library/ec/components/banner/code)
+      * *Playground link:* [Banner](https://ec.europa.eu/component-library/playground/ec/?path=/story/components-banner--image&globals=viewport:responsive/)
+      * Illustration![Generic](ECL-V4-banner.png)
+
+  * **Blockquotes**
+      * *Description:* Specifically styled containers used to highlight quotes or significant text excerpts.
+      * *Showcase:* [View Blockquotes](https://ec.europa.eu/component-library/ec/components/blockquote/code)
+      * *Playground link:* [Blockquote](https://ec.europa.eu/component-library/playground/ec/?path=/story/components-blockquote--default&globals=viewport:responsive/)
+      * Illustration![Generic](ECL-V4-Blockquotes.png)
+
+  * **Buttons**
+      * *Description:* Action triggers available in Primary, Secondary, and Ghost variants for clear hierarchy.
+      * *Showcase:* [View Buttons](https://ec.europa.eu/component-library/playground/ec/?path=/story/components-button/code)
+      * *Playground link:* [Button](https://ec.europa.eu/component-library/playground/ec/?path=/story/components-button--primary&globals=viewport:responsive)
+      * Illustration![Generic](ECL-V4-buttons.png)
+
+  * **Cards**
+      * *Description:* Containers that group related content (text, images, links) into a single actionable unit.
+      * *Showcase:* [View Cards](https://ec.europa.eu/component-library/ec/components/card/code)
+      * *Playground link:* [Card](https://ec.europa.eu/component-library/playground/ec/?path=/story/components-card--default&globals=viewport:responsive/)
+      * Illustration![Generic](ECL-V4-default-thumb.png)
+
+  * **Carousel**
+      * *Description:* An interactive slideshow used to cycle through multiple featured content items.
+      * *Showcase:* [View Carousel](https://ec.europa.eu/component-library/ec/components/carousel/code)
+      * *Playground link:* [Carousel](https://ec.europa.eu/component-library/playground/ec/?path=/story/components-carousel--default&globals=viewport:responsive/)
+      * Illustration![Generic](ECL-V4-default-thumb.png)
+
+  * **Category Filter**
+      * *Description:* Tools for users to sort and filter lists based on specific metadata or categories.
+      * *Showcase:* [View Filter](https://ec.europa.eu/component-library/ec/components/category-filter/code)
+      * *Playground link:* [Filter](https://ec.europa.eu/component-library/playground/ec/?path=/story/components-category-filter--default&globals=viewport:responsive/)
+      * Illustration![Generic](ECL-V4-default-thumb.png)
+
+  * **Fact and Figures**
+      * *Description:* A visual component designed to highlight key data points, statistics, or metrics.
+      * *Showcase:* [View Stats](https://ec.europa.eu/component-library/ec/components/fact-figures/code)
+      * *Playground link:* [Fact](https://ec.europa.eu/component-library/playground/ec/?path=/story/components-fact-figures--default&globals=viewport:responsive/)
+      * Illustration![Generic](ECL-V4-default-thumb.png)
+
+  * **Files**
+      * *Description:* A standardized link for downloads, showing file type, title, and file size.
+      * *Showcase:* [View Files](https://ec.europa.eu/component-library/ec/components/file/code)
+      * *Playground link:* [File](https://ec.europa.eu/component-library/playground/ec/?path=/story/components-file--default&globals=viewport:responsive/)
+      * Illustration![Generic](ECL-V4-files.png)
+
+  * **Modal**
+      * *Description:* An overlay window capturing user focus for critical interactions or extra info.
+      * *Showcase:* [View Modal](https://ec.europa.eu/component-library/ec/components/modal/code)
+      * *Playground link:* [Modal](https://ec.europa.eu/component-library/playground/ec/?path=/story/components-modal--default&globals=viewport:responsive/)
+      * Illustration![Generic](ECL-V4-default-thumb.png)
+
+  * **Notifications**
+      * *Description:* Status banners (Success, Warning, Error) used for immediate system feedback.
+      * *Showcase:* [View Notifications](https://ec.europa.eu/component-library/ec/components/notification/code)
+      * *Playground link:* [Notification](https://ec.europa.eu/component-library/playground/ec/?path=/story/components-notifications--info&globals=viewport:responsive)
+      * Illustration![Generic](ECL-V4-default-thumb.png)
+
+  * **Timeline**
+      * *Description:* A vertical or horizontal representation of a sequence of events or milestones.
+      * *Showcase:* [View Timeline](https://ec.europa.eu/component-library/ec/components/timeline/code)
+      * *Playground link:* [Timeline](https://ec.europa.eu/component-library/playground/ec/?path=/story/components-timeline--default&globals=viewport:responsive/)
+      * Illustration![Generic](ECL-V4-default-thumb.png)
+
+  ### Form Elements
+
+  * **Checkbox**
+      * *Description:* Allows users to select one or more items from a list of options.
+      * *Showcase:* [View Checkbox](https://ec.europa.eu/component-library/ec/components/checkbox/code)
+      * *Playground link:* [Checkbox](https://ec.europa.eu/component-library/playground/ec/?path=/story/components-forms--standalone-checkbox&globals=viewport:responsive)
+      * Illustration![Generic](ECL-V4-default-thumb.png)
+
+  * **Datepicker**
+      * *Description:* A calendar-based input for selecting dates in a standardized format.
+      * *Showcase:* [View Datepicker](https://ec.europa.eu/component-library/ec/components/datepicker/code)
+      * *Playground link:* [Datepicker](https://ec.europa.eu/component-library/playground/ec/?path=/story/components-forms--standalone-checkbox&globals=viewport:responsive)
+      * Illustration![Generic](ECL-V4-default-thumb.png)
+
+  * **File Upload**
+      * *Description:* An interface for users to select and attach files for submission.
+      * *Showcase:* [View Upload](https://ec.europa.eu/component-library/ec/components/file-upload/code)
+      * *Playground link:* [Upload](https://ec.europa.eu/component-library/playground/ec/?path=/story/components-forms--file-upload&globals=viewport:responsive)
+      * Illustration![Generic](ECL-V4-default-thumb.png)
+
+  * **Select**
+      * *Description:* A dropdown menu used to pick a single option from a list.
+      * *Showcase:* [View Select](https://ec.europa.eu/component-library/ec/components/select/code)
+      * *Playground link:* [Select](https://ec.europa.eu/component-library/playground/ec/?path=/story/components-forms--select&globals=viewport:responsive)
+      * Illustration![Generic](ECL-V4-default-thumb.png)
+
+  * **Text Field**
+      * *Description:* A single-line input field for alphanumeric data entry.
+      * *Showcase:* [View Text Field](https://ec.europa.eu/component-library/ec/components/text-field/code)
+      * *Playground link:* [Text Field](https://ec.europa.eu/component-library/playground/ec/?path=/story/components-forms--text&globals=viewport:responsive)
+      * Illustration![Generic](ECL-V4-default-thumb.png)
+
+  ### Navigation & Structural Components
+
+  * **Breadcrumb**
+      * *Description:* Shows the navigation path and current location within the site hierarchy.
+      * *Showcase:* [View Breadcrumb](https://ec.europa.eu/component-library/ec/components/breadcrumb/code)
+      * *Playground link:* [Breadcrumb](https://ec.europa.eu/component-library/playground/ec/?path=/story/components-navigation-breadcrumb--default&globals=viewport:responsive)
+      * Illustration![Generic](ECL-V4-default-thumb.png)
+
+  * **Mega Menu**
+      * *Description:* A large navigation menu for websites with deep information architecture.
+      * *Showcase:* [View Mega Menu](https://ec.europa.eu/component-library/ec/components/mega-menu/code)
+      * *Playground link:* [Mega Menu](https://ec.europa.eu/component-library/playground/ec/?path=/story/components-site-wide-site-header--core&args=show_menu:mega-menu&globals=viewport:responsive)
+      * Illustration![Generic](ECL-V4-default-thumb.png)
+
+  * **Tabs**
+      * *Description:* Layered sections allowing users to switch views within the same context.
+      * *Showcase:* [View Tabs](https://ec.europa.eu/component-library/ec/components/tabs/code)
+      * *Playground link:* [Tabs](https://ec.europa.eu/component-library/playground/ec/?path=/story/components-navigation-tabs--default&globals=viewport:responsive)
+      * Illustration![Generic](ECL-V4-default-thumb.png)
+
+  * **Pagination**
+      * *Description:* Navigation controls used to divide long content across multiple pages.
+      * *Showcase:* [View Pagination](https://ec.europa.eu/component-library/ec/components/pagination/code)
+      * *Playground link:* [Pagination](https://ec.europa.eu/component-library/playground/ec/?path=/story/components-navigation-pagination--default&globals=viewport:responsive)
+      * Illustration![Generic](ECL-V4-default-thumb.png)
+
+  * **Site Header**
+      * *Description:* Global header with official identity, language selector, and search.
+      * *Showcase:* [View Site Header](https://ec.europa.eu/component-library/ec/components/site-header/code)
+      * *Playground link:* [Header](https://ec.europa.eu/component-library/playground/ec/?path=/story/components-site-wide-site-header--core&globals=viewport:responsive)
+      * Illustration![Generic](ECL-V4-default-thumb.png)
+
+  * **Site Footer**
+      * *Description:* Global footer containing legal links, copyright, and contact info.
+      * *Showcase:* [View Site Footer](https://ec.europa.eu/component-library/ec/components/site-footer/code)
+      * *Playground link:* [Footer](https://ec.europa.eu/component-library/playground/ec/?path=/story/components-site-wide-site-footer--core&globals=viewport:responsive)
+      * Illustration![Generic](ECL-V4-default-thumb.png)
+
+  ---
+  ## 3. Features
+  * Language and translation ref: RTL and LTR
+
+  ---
+  ## 4. Templates
+  * Template : Press Release/News Detail
+      * Site Header
+      * Breadcrumb
+      * Page Header (with Label, Date, and Typography.H1)
+      * Inpage Navigation
+      * Featured Item (Image)
+      * Typography.Body (Main text)
+      * Separator
+      * File (PDF Download)
+      * Tags (Related Topics)
+      * Social Media Share
+      * Site Footer
+  * Template : Priority Detail Page
+      * Site Header (with Mega Menu)
+      * Breadcrumb
+      * Banner (Hero style)
+      * Fact and Figures (Data callouts)
+      * List with Illustrations (Icon + Text)
+      * Featured Item (Image + Body text blocks)
+      * Timeline (Interactive progress tracker)
+      * Card (News & Profiles)
+      * Navigation List (Footer-area links)
+      * Tags
+      * Social Media Share
+      * Site Footer
+
+  ## 5. System Guidelines
+  The ECL ensures brand consistency and high accessibility standards across all digital platforms of the European Commission.
+
+  * **Typography:** A strict semantic hierarchy using standardized font stacks (Arial, Helvetica, or custom EU fonts) to maintain a professional, neutral tone.
+  * **Color Palette:** Centered on "EU Blue" (#004494) and "EU Yellow" (#FFD617). Includes functional colors for system feedback (Success, Info, Warning, Error).
+  * **Grid & Layout:** Utilizes a 12-column responsive grid and "Stacks" (Flexbox-based utility) for fluid layouts across all device sizes.
+  * **Accessibility:** Built-in compliance with WCAG 2.1 Level AA, covering keyboard navigation, contrast, and screen reader support.
+  * **Spacing:** A modular scale used to maintain consistent rhythm and white space between interface elements.
+
+  ---
+  ## 6. Implementation Details
+  * **Version Focus:** ECL v4 emphasizes visual improvements such as updated color palettes, rounded corners, and refined shadows.
+  * **Tech Stack:** Provides Twig templates, HTML5/CSS3 (BEM naming convention), and vanilla JavaScript.
+  * **Usage:** For implementation, refer to the "Code" tab within any component Showcase link to access the specific markup and behavior logic.
+system_role: assistant
+assistant_message: 'Hi! I am your on-form design assistant. Ask me about ECL v4 design, components, templates, or styling. I will answer here with guidance and example snippets (I won’t change your field automatically).'
+no_results_message: 'I could not find a way to adjust the markdown. Please refine your request.'
+error_message: 'An error occurred. Please try again.'
+specific_error_messages: []
+llm_provider: amazeeio
+llm_model: mistral-large-latest
+llm_configuration:
+  max_tokens: 4096
+  temperature: 0.4
+  top_p: 1.0
+actions_enabled: []
+roles:
+  authenticated: authenticated
+use_function_calling: false
+ai_agent: ''

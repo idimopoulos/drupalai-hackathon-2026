@@ -1,0 +1,9 @@
+name: CanvasGov Assistant
+type: module
+description: 'Provides the CanvasGov assistant bot for embedding into forms.'
+core_version_requirement: ^10.3 || ^11
+package: Custom
+
+dependencies:
+  - ai_chatbot:ai_chatbot
+  - ai_assistant_api:ai_assistant_api

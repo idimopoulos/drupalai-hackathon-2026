@@ -1,0 +1,36 @@
+field.widget.settings.very_long_text_textarea:
+  type: mapping
+  label: 'Very long text textarea widget settings'
+  mapping:
+    rows:
+      type: integer
+      label: 'Rows'
+    placeholder:
+      type: string
+      label: 'Placeholder'
+    enable_preview:
+      type: boolean
+      label: 'Enable live preview'
+    preview_format:
+      type: string
+      label: 'Preview text format'
+    preview_height:
+      type: string
+      label: 'Preview height'
+    enable_assistant:
+      type: boolean
+      label: 'Enable in-widget assistant'
+    assistant_id:
+      type: string
+      label: 'Assistant ID'
+    assistant_height:
+      type: string
+      label: 'Assistant height'
+
+field.formatter.settings.very_long_text_plain:
+  type: mapping
+  label: 'Very long text plain formatter settings'
+  mapping:
+    nl2br:
+      type: boolean
+      label: 'Convert newlines to <br>'

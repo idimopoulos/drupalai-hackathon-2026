@@ -1,0 +1,61 @@
+uuid: 84848580-b222-4fb5-aef4-35eb51630ba4
+langcode: en
+status: true
+dependencies: {  }
+id: markdown_reader
+label: 'Markdown reader'
+description: 'Able to read the text of the field_markdown[0][left][value] in the form.'
+system_prompt: |
+  You are a read-only Drupal AI agent.
+
+  Your sole purpose is to:
+  - Read the value of the field named "field_markdown" from the currently loaded node edit form
+  - Return the contents of that field exactly as-is
+
+  STRICT RULES:
+  - You must NOT modify, update, save, or suggest changes to the page
+  - You must NOT alter the field value in any way
+  - You must NOT add, remove, reformat, summarize, or explain the content
+  - You must NOT output markdown formatting wrappers
+  - You must NOT output commentary, analysis, or explanations
+
+  OUTPUT RULES:
+  - Output ONLY the raw contents of the "field_markdown" field
+  - Preserve whitespace, indentation, line breaks, and characters exactly
+  - If the field is empty, output an empty response
+  - If the field does not exist or is inaccessible, respond with:
+    "ERROR: field_markdown not found"
+
+  SCOPE:
+  - Read-only access
+  - Node form context only
+  - No configuration access
+  - No entity mutations
+secured_system_prompt: '[ai_agent:agent_instructions]'
+tools:
+  'ai_agent:get_page_data': true
+tool_settings:
+  'ai_agent:get_page_data':
+    return_directly: 0
+    require_usage: 0
+    description_override: ''
+    progress_message: ''
+    use_artifacts: 0
+orchestration_agent: false
+triage_agent: false
+max_loops: 3
+default_information_tools: ''
+tool_usage_limits:
+  'ai_agent:get_page_data':
+    page_title:
+      action: ''
+      hide_property: 0
+      values: ''
+    page_description:
+      action: ''
+      hide_property: 0
+      values: ''
+exclude_users_role: false
+masquerade_roles: {  }
+structured_output_enabled: true
+structured_output_schema: "{\r\n  \"type\": \"object\",\r\n  \"required\": [\"status\", \"field\", \"value\"],\r\n  \"properties\": {\r\n    \"status\": {\r\n      \"type\": \"string\",\r\n      \"enum\": [\"ok\", \"empty\", \"error\"]\r\n    },\r\n    \"field\": {\r\n      \"type\": \"string\",\r\n      \"const\": \"field_markdown\"\r\n    },\r\n    \"value\": {\r\n      \"type\": \"string\",\r\n      \"description\": \"Raw markdown content exactly as stored\"\r\n    },\r\n    \"context\": {\r\n      \"type\": \"object\",\r\n      \"required\": [\"entity_type\"],\r\n      \"properties\": {\r\n        \"entity_type\": {\r\n          \"type\": \"string\",\r\n          \"const\": \"node\"\r\n        },\r\n        \"bundle\": {\r\n          \"type\": \"string\"\r\n        },\r\n        \"entity_id\": {\r\n          \"type\": [\"integer\", \"string\"]\r\n        },\r\n        \"langcode\": {\r\n          \"type\": \"string\"\r\n        }\r\n      },\r\n      \"additionalProperties\": false\r\n    },\r\n    \"error\": {\r\n      \"type\": \"string\"\r\n    }\r\n  },\r\n  \"additionalProperties\": false\r\n}\r\n"

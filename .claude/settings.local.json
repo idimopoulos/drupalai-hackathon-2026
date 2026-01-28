@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ddev drush:*)",
+      "Bash(ddev exec php:*)"
+    ]
+  }
+}

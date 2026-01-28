@@ -1,0 +1,46 @@
+uuid: aa91059c-53ee-4a34-8eac-f429bd279e8a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.pdp.field_markdown
+    - node.type.pdp
+  module:
+    - very_long_text
+id: node.pdp.default
+targetEntityType: node
+bundle: pdp
+mode: default
+content:
+  field_markdown:
+    type: very_long_text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 10
+      placeholder: ''
+      enable_preview: true
+      preview_format: markdown
+      preview_height: 400px
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  moderation_state: true
+  path: true
+  promote: true
+  publish_on: true
+  publish_state: true
+  status: true
+  sticky: true
+  uid: true
+  unpublish_on: true
+  unpublish_state: true
+  url_redirects: true

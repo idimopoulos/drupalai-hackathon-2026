@@ -1,0 +1,12 @@
+assistant_wiring:
+  version: 1.x
+  js:
+    js/very-long-text-assistant.js: {}
+  css:
+    theme:
+      css/very-long-text-assistant.css: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/once
+    - ai_chatbot/deepchat

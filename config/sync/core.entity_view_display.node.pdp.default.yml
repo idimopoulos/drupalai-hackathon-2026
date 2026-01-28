@@ -1,0 +1,30 @@
+uuid: 7bcbefad-3c5a-4f39-900f-e6c1bf42b41f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.pdp.field_markdown
+    - node.type.pdp
+  module:
+    - user
+    - very_long_text
+id: node.pdp.default
+targetEntityType: node
+bundle: pdp
+mode: default
+content:
+  field_markdown:
+    type: very_long_text_plain
+    label: above
+    settings:
+      nl2br: true
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  search_api_excerpt: true

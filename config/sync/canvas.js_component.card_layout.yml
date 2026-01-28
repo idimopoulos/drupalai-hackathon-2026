@@ -1,0 +1,29 @@
+uuid: c412d67c-fda8-4045-8a39-87d3f760c978
+langcode: en
+status: false
+dependencies: {  }
+machineName: card_layout
+name: 'card layout'
+required: {  }
+props: {  }
+slots: {  }
+js:
+  original: |
+    // See https://project.pages.drupalcode.org/canvas/ for documentation on how to build a code component
+
+    const Component = ({
+      text = "card layout",
+    }) => {
+      return (
+        <div className="text-3xl">
+          {text}
+        </div>
+      );
+    };
+
+    export default Component;
+  compiled: ''
+css:
+  original: ''
+  compiled: ''
+dataDependencies: {  }

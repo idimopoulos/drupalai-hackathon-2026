@@ -1,0 +1,72 @@
+/* Constrain widget to viewport height */
+.vlt-widget-wrapper {
+  max-height: 80vh;
+}
+
+/* Right column fills available height within constraint */
+.vlt-widget-wrapper .vlt-right {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: 80vh;
+  max-height: 80vh;
+}
+
+/* Assistant wrapper fills parent */
+.vlt-widget-wrapper .vlt-right .vlt-assistant {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Force the DeepChat container to fill parent, not sticky/floating */
+.vlt-assistant .ai-deepchat.chat-container {
+  position: static !important;
+  inset: auto !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 auto !important;
+  overflow: hidden !important;
+}
+
+/* Hide the collapsible header */
+.vlt-assistant .ai-deepchat--header {
+  display: none !important;
+}
+
+/* Chat element wrapper fills available space */
+.vlt-assistant .chat-element {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 auto !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* DeepChat element fills its container with input at bottom */
+.vlt-assistant deep-chat,
+.vlt-assistant .deepchat-element {
+  width: 100% !important;
+  height: 100% !important;
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Style deep-chat via CSS custom properties (supported by DeepChat) */
+.vlt-assistant deep-chat {
+  --chat-height: 100% !important;
+  --chat-width: 100% !important;
+}

@@ -1,0 +1,9 @@
+assistant_wiring:
+  version: 1.x
+  js:
+    js/canvasgov-assistant-wiring.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/once
+    - ai_chatbot/deepchat

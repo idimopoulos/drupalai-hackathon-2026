@@ -1,0 +1,9 @@
+<?php
+
+/**
+ * @file
+ * Minimal CanvasGov Assistant module.
+ *
+ * Note: The assistant is now embedded directly into the Very long text widget.
+ * This module only provides the installed assistant configuration.
+ */
